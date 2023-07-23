@@ -18,7 +18,7 @@ const register_post = async (req, res, next) => {
         phone,
         password
       })
-      res.status(201).json({ user: client._id })
+      res.status(201).json({ msg: "Sucesso!" })
     }catch(err){
       res.status(400).json({ err })
     }
@@ -33,7 +33,7 @@ const register_post = async (req, res, next) => {
         phone,
         password
       })
-      res.status(201).json({ user: client._id })
+      res.status(201).json({ msg: "Sucesso!" })
     }catch(err){
       res.status(400).json({ err })
     }
