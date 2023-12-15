@@ -4,11 +4,7 @@
       <p class="step-indicator">
         Etapa <span style="color: orange">{{ section }}</span> de 4
       </p>
-      <div
-        class="form-section"
-        id="form-section-welcome"
-        v-show="section === 1"
-      >
+      <div class="form-section" id="form-section-welcome" v-if="section === 1">
         <h2>Seja bem vindo(a)</h2>
         <label for="email">Endereço de e-mail</label>
         <input type="email" id="email" v-model="client.email" required />
@@ -36,7 +32,7 @@
       <div
         class="form-section"
         id="form-section-pf"
-        v-show="section === 2 && client.type === 'pessoaFisica'"
+        v-if="section === 2 && client.type === 'pessoaFisica'"
       >
         <h2>Pessoa Física</h2>
         <label for="name">Nome</label>
@@ -51,7 +47,7 @@
       <div
         class="form-section"
         id="form-section-pj"
-        v-show="section === 2 && client.type === 'pessoaJuridica'"
+        v-if="section === 2 && client.type === 'pessoaJuridica'"
       >
         <h2>Pessoa Jurídica</h2>
         <label for="business-name">Razão Social</label>
@@ -68,7 +64,7 @@
         <label for="phone-number">Telefone</label>
         <input type="text" id="phone-number" v-model="client.phone" required />
       </div>
-      <div class="form-section" id="form-section-senha" v-show="section === 3">
+      <div class="form-section" id="form-section-senha" v-if="section === 3">
         <h2>Senha de acesso</h2>
         <label for="password">Sua senha</label>
         <input
@@ -78,7 +74,7 @@
           required
         />
       </div>
-      <div class="form-section" id="form-section-review" v-show="section === 4">
+      <div class="form-section" id="form-section-review" v-if="section === 4">
         <h2>Revise suas informações</h2>
         <div class="form-section" v-if="client.type === 'pessoaFisica'">
           <label for="email">Endereço de e-mail</label>
@@ -279,15 +275,5 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-  }
-
-  .v-enter-active,
-  .v-leave-active {
-    transition: opacity 0.5s ease;
-  }
-
-  .v-enter-from,
-  .v-leave-to {
-    opacity: 0;
   }
 </style>
