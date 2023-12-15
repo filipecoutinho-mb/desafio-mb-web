@@ -27,6 +27,7 @@ const register_post = async (req, res, next) => {
     }
   } else {
     res.status(422).json({ error: 'Tipo de cliente inválido' })
+    return
   }
 
   let hasEmptyFields = false
