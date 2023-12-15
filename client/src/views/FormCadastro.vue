@@ -154,7 +154,7 @@
   import { ref } from 'vue'
 
   const section = ref(1)
-  const client = {
+  const client = ref({
     email: '',
     type: '',
     name: '',
@@ -164,7 +164,7 @@
     foundationdate: '',
     phone: '',
     password: '',
-  }
+  })
 
   const prev = () => {
     section.value = section.value - 1
@@ -175,10 +175,13 @@
   }
 
   const submit = async () => {
+    const url = 'http://localhost:3000/registration'
+    let res = ''
     if (client.value.type === 'pessoaFisica') {
       try {
-        await fetch('/registration', {
+        res = await fetch(url, {
           method: 'POST',
+          mode: 'cors',
           body: JSON.stringify({
             email: client.value.email,
             type: client.value.type,
@@ -195,8 +198,9 @@
       }
     } else {
       try {
-        await fetch('/registration', {
+        res = await fetch(url, {
           method: 'POST',
+          mode: 'cors',
           body: JSON.stringify({
             email: client.value.email,
             type: client.value.type,
@@ -212,6 +216,8 @@
         console.log(err)
       }
     }
+
+    console.log(res)
   }
 </script>
 

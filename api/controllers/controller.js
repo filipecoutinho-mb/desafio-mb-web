@@ -1,49 +1,44 @@
-const Person = require('../models/person')
-const Company = require('../models/company')
-
 const register_get = async (req, res) => {
   res.status(200).json('GETTING')
 }
 
 const register_post = async (req, res, next) => {
   const { email, type, name, phone, password } = req.body
-  if (type === 'pessoaFisica'){
+  let client = {}
+  if (type === 'pessoaFisica') {
     const { cpf, birthdate } = req.body
-    try {
-      const client = await Person.create({
-        email,
-        name,
-        cpf,
-        birthdate,
-        phone,
-        password
-      })
-      res.status(201).json({ user: client._id })
-    }catch(err){
-      res.status(400).json({ err })
+    client = {
+      email,
+      name,
+      cpf,
+      birthdate,
+      phone,
+      password,
     }
-  }else if (type === 'pessoaJuridica'){
+  } else if (type === 'pessoaJuridica') {
     const { cnpj, foundationdate } = req.body
-    try {
-      const client = await Company.create({
-        email,
-        name,
-        cnpj,
-        foundationdate,
-        phone,
-        password
-      })
-      res.status(201).json({ user: client._id })
-    }catch(err){
-      res.status(400).json({ err })
+    client = {
+      email,
+      name,
+      cnpj,
+      foundationdate,
+      phone,
+      password,
     }
-  }else{
+  } else {
     res.status(400).json({ error: 'Tipo de cliente inválido' })
   }
+
+  Object.values(client).every((value) => {
+    if (value.length === 0) {
+      res.status(400).json({ error: 'Cliente com campos em branco.' })
+    }
+  })
+
+  res.status(201).json({ message: 'Sucesso!', client: client })
 }
-  
 
 module.exports = {
-    register_get,
-    register_post
+  register_get,
+  register_post,
 }
