@@ -26,16 +26,20 @@ const register_post = async (req, res, next) => {
       password,
     }
   } else {
-    res.status(400).json({ error: 'Tipo de cliente inválido' })
+    res.status(422).json({ error: 'Tipo de cliente inválido' })
   }
 
-  Object.values(client).every((value) => {
-    if (value.length === 0) {
-      res.status(400).json({ error: 'Cliente com campos em branco.' })
-    }
-  })
+  let hasEmptyFields = false
 
-  res.status(201).json({ message: 'Sucesso!', client: client })
+  for (let key in client) {
+    if (client[key].length === 0) {
+      hasEmptyFields = true
+    }
+  }
+
+  if (hasEmptyFields)
+    res.status(422).json({ error: 'Cliente com campos em branco.' })
+  else res.status(201).json({ message: 'Sucesso!', client: client })
 }
 
 module.exports = {
