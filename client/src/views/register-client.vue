@@ -320,5 +320,5 @@
 </script>
 
 <style>
-  @import '../../public/styles/register-client.css';
+  @import '../../statics/styles/register-client.css';
 </style>
