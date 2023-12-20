@@ -24,16 +24,24 @@ app.get('/', (req, res) =>
 )
 
 app.get('/registration', async (req, res) => {
-  let template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
+  try {
+    let template = fs.readFileSync(
+      path.resolve(__dirname, 'index.html'),
+      'utf-8'
+    )
 
-  template = await vite.transformIndexHtml(req.originalUrl, template)
+    template = await vite.transformIndexHtml(req.originalUrl, template)
 
-  const render = (await vite.ssrLoadModule('/src/entry-server.js')).render
+    const render = (await vite.ssrLoadModule('/src/entry-server.js')).render
 
-  const { html: appHtml } = await render()
-  const html = template.replace('<!--main-app-->', appHtml)
+    const { html: appHtml } = await render()
+    const html = template.replace('<!--main-app-->', appHtml)
 
-  res.set({ 'Content-Type': 'text/html' }).end(html)
+    res.set({ 'Content-Type': 'text/html' }).end(html)
+  } catch (e) {
+    vite.ssrFixStacktrace(e)
+    next(e)
+  }
 })
 
 app.post('/registration', async (req, res, next) => {
