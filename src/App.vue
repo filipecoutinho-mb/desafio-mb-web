@@ -1,5 +1,5 @@
 <script setup>
-  import registerClient from './views/register-client.vue'
+  import registerClient from './components/register-client.vue'
 </script>
 
 <template>
