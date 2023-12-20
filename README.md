@@ -8,6 +8,8 @@ Esse desafio tem como objetivo entender seus conhecimentos sobre a plataforma We
 
 ## Setup da aplicação
 
+Instruções de como instalar as dependências e rodar a aplicação.
+
 ### Requisitos
 
 |         | Versão    |
