@@ -17,12 +17,6 @@ app.use(vite.middlewares)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', (req, res) =>
-  res.send(
-    '<h1>Bem vindo à API da MB</h1><ol><li>Acesse /registration para autenticação.</li></ol>'
-  )
-)
-
 app.get('/registration', async (req, res) => {
   try {
     let template = fs.readFileSync(
@@ -86,6 +80,10 @@ app.post('/registration', async (req, res, next) => {
   } else {
     res.status(201).json({ message: 'Sucesso!', client: client })
   }
+})
+
+app.get('*', function (req, res) {
+  res.redirect('/registration')
 })
 
 app.listen(3000, () => {

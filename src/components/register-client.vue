@@ -2,7 +2,7 @@
   <main>
     <form class="register-client-form" method="post" @submit.prevent="next()">
       <p class="step-indicator">
-        Etapa <span style="color: orange">{{ section }}</span> de 4
+        Etapa <span class="current-section">{{ section }}</span> de 4
       </p>
       <div class="form-section" id="form-section-welcome" v-if="section === 1">
         <h2 class="step-header">Seja bem vindo(a)</h2>
@@ -11,6 +11,7 @@
           class="register-client-input-field"
           type="email"
           id="email"
+          autocomplete="email"
           v-model="client.email"
           required
         />
@@ -21,8 +22,8 @@
             id="pessoa-fisica"
             name="client-type"
             value="pessoaFisica"
-            v-model="client.type"
             required
+            v-model="client.type"
           />
           <label class="register-client-input-radio-label" for="pessoa-fisica"
             >Pessoa Física</label
@@ -33,8 +34,8 @@
             id="pessoa-juridica"
             name="client-type"
             value="pessoaJuridica"
-            v-model="client.type"
             required
+            v-model="client.type"
           />
           <label class="register-client-input-radio-label" for="pessoa-juridica"
             >Pessoa Jurídica</label
@@ -52,6 +53,7 @@
           class="register-client-input-field"
           type="text"
           id="name"
+          autocomplete="name"
           v-model="client.name"
           required
         />
@@ -60,6 +62,7 @@
           class="register-client-input-field"
           type="text"
           id="cpf"
+          autocomplete="on"
           v-model="client.cpf"
           required
         />
@@ -68,6 +71,7 @@
           class="register-client-input-field"
           type="date"
           id="birthdate"
+          autocomplete="bday"
           v-model="client.birthdate"
           required
         />
@@ -76,6 +80,7 @@
           class="register-client-input-field"
           type="text"
           id="phone-number"
+          autocomplete="tel-national"
           v-model="client.phone"
           required
         />
@@ -91,6 +96,7 @@
           class="register-client-input-field"
           type="text"
           id="business-name"
+          autocomplete="name"
           v-model="client.name"
           required
         />
@@ -99,6 +105,7 @@
           class="register-client-input-field"
           type="text"
           id="cnpj"
+          autocomplete="on"
           v-model="client.cnpj"
           required
         />
@@ -107,6 +114,7 @@
           class="register-client-input-field"
           type="date"
           id="foundation-date"
+          autocomplete="bday"
           v-model="client.foundationdate"
           required
         />
@@ -115,6 +123,7 @@
           class="register-client-input-field"
           type="text"
           id="phone-number"
+          autocomplete="tel-national"
           v-model="client.phone"
           required
         />
@@ -126,6 +135,7 @@
           class="register-client-input-field"
           type="password"
           id="password"
+          autocomplete="new-password"
           v-model="client.password"
           required
         />
@@ -138,6 +148,7 @@
             class="register-client-input-field"
             type="text"
             id="email"
+            autocomplete="email"
             v-model="client.email"
             required
           />
@@ -146,6 +157,7 @@
             class="register-client-input-field"
             type="text"
             id="name"
+            autocomplete="name"
             v-model="client.name"
             required
           />
@@ -154,6 +166,7 @@
             class="register-client-input-field"
             type="text"
             id="cpf"
+            autocomplete="on"
             v-model="client.cpf"
             required
           />
@@ -162,6 +175,7 @@
             class="register-client-input-field"
             type="date"
             id="birthdate"
+            autocomplete="bday"
             v-model="client.birthdate"
             required
           />
@@ -170,6 +184,7 @@
             class="register-client-input-field"
             type="text"
             id="phone-number"
+            autocomplete="tel-national"
             v-model="client.phone"
             required
           />
@@ -178,6 +193,7 @@
             class="register-client-input-field"
             type="password"
             id="password"
+            autocomplete="new-password"
             v-model="client.password"
             required
           />
@@ -188,6 +204,7 @@
             class="register-client-input-field"
             type="text"
             id="email"
+            autocomplete="email"
             v-model="client.email"
             required
           />
@@ -196,6 +213,7 @@
             class="register-client-input-field"
             type="text"
             id="name"
+            autocomplete="name"
             v-model="client.name"
             required
           />
@@ -204,6 +222,7 @@
             class="register-client-input-field"
             type="text"
             id="cnpj"
+            autocomplete="on"
             v-model="client.cnpj"
             required
           />
@@ -212,6 +231,7 @@
             class="register-client-input-field"
             type="date"
             id="foundation-date"
+            autocomplete="bday"
             v-model="client.foundationdate"
             required
           />
@@ -220,6 +240,7 @@
             class="register-client-input-field"
             type="text"
             id="phone-number"
+            autocomplete="tel-national"
             v-model="client.phone"
             required
           />
@@ -228,6 +249,7 @@
             class="register-client-input-field"
             type="passwor+"
             id="password"
+            autocomplete="new-password"
             v-model="client.password"
             required
           />
