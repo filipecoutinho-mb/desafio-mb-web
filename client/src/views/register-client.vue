@@ -16,7 +16,7 @@
         />
         <div class="form-group">
           <input
-            class="register-client-form-input-radio"
+            class="register-client-input-radio"
             type="radio"
             id="pessoa-fisica"
             name="client-type"
@@ -24,9 +24,11 @@
             v-model="client.type"
             required
           />
-          <label for="pessoa-fisica">Pessoa Física</label>
+          <label class="register-client-input-radio-label" for="pessoa-fisica"
+            >Pessoa Física</label
+          >
           <input
-            class="register-client-form-input-radio"
+            class="register-client-input-radio"
             type="radio"
             id="pessoa-juridica"
             name="client-type"
@@ -34,7 +36,9 @@
             v-model="client.type"
             required
           />
-          <label for="pessoa-juridica">Pessoa Jurídica</label>
+          <label class="register-client-input-radio-label" for="pessoa-juridica"
+            >Pessoa Jurídica</label
+          >
         </div>
       </div>
       <div
