@@ -6,14 +6,14 @@ Somos a maior plataforma de negociação de criptomoedas e ativos alternativos d
 
 Esse desafio tem como objetivo entender seus conhecimentos sobre a plataforma Web, assim como conceitos de base como HTML, CSS, protocolo HTTP e arquitetura cliente/servidor.
 
-## Requisitos
+## Setup da aplicação
+
+### Requisitos
 
 |         | Versão    |
 | ------- | --------- |
 | _Node_  | `18.18.2` |
 | _NPM\*_ | `9.8.1`   |
-
-## Set up da aplicação
 
 ### Cliente
 
