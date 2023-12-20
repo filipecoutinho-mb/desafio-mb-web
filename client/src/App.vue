@@ -1,7 +1,7 @@
 <script setup>
-  import { RouterView } from 'vue-router'
+  import registerClient from './views/register-client.vue'
 </script>
 
 <template>
-  <RouterView />
+  <register-client />
 </template>
