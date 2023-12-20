@@ -283,7 +283,7 @@
       try {
         res = await fetch(url, {
           method: 'POST',
-          mode: 'cors',
+          mode: 'same-origin',
           body: JSON.stringify({
             email: client.value.email,
             type: client.value.type,
@@ -302,7 +302,7 @@
       try {
         res = await fetch(url, {
           method: 'POST',
-          mode: 'cors',
+          mode: 'same-origin',
           body: JSON.stringify({
             email: client.value.email,
             type: client.value.type,
@@ -319,7 +319,7 @@
       }
     }
 
-    console.log(res)
+    console.log(res.json())
   }
 </script>
 
