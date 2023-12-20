@@ -17,14 +17,6 @@ Esse desafio tem como objetivo entender seus conhecimentos sobre a plataforma We
 
 ### Cliente
 
-Navegar até a pasta client
-
-```console
-cd client
-```
-
----
-
 Instalar todas as dependências
 
 ```console
@@ -37,32 +29,6 @@ Rodar a aplicação no modo de desenvolvimento
 
 ```console
 npm run dev
-```
-
----
-
-### Cliente
-
-Navegar até a pasta api
-
-```console
-cd api
-```
-
----
-
-Instalar todas as dependências
-
-```console
-npm i
-```
-
----
-
-Rodar o servidor no modo de desenvolvimento
-
-```console
-npm run server
 ```
 
 ---
