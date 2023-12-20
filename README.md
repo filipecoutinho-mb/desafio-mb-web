@@ -6,6 +6,67 @@ Somos a maior plataforma de negociação de criptomoedas e ativos alternativos d
 
 Esse desafio tem como objetivo entender seus conhecimentos sobre a plataforma Web, assim como conceitos de base como HTML, CSS, protocolo HTTP e arquitetura cliente/servidor.
 
+## Requisitos
+
+|         | Versão    |
+| ------- | --------- |
+| _Node_  | `18.18.2` |
+| _NPM\*_ | `9.8.1`   |
+
+## Set up da aplicação
+
+### Cliente
+
+Navegar até a pasta client
+
+```console
+cd client
+```
+
+---
+
+Instalar todas as dependências
+
+```console
+npm i
+```
+
+---
+
+Rodar a aplicação no modo de desenvolvimento
+
+```console
+npm run dev
+```
+
+---
+
+### Cliente
+
+Navegar até a pasta api
+
+```console
+cd api
+```
+
+---
+
+Instalar todas as dependências
+
+```console
+npm i
+```
+
+---
+
+Rodar o servidor no modo de desenvolvimento
+
+```console
+npm run server
+```
+
+---
+
 ## Projeto
 
 Criar uma aplicação cliente/servidor de cadastro de usuários.
