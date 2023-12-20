@@ -15,7 +15,7 @@ Instruções de como instalar as dependências e rodar a aplicação.
 |         | Versão    |
 | ------- | --------- |
 | _Node_  | `18.18.2` |
-| _NPM\*_ | `9.8.1`   |
+| _NPM_   | `9.8.1`   |
 
 ### Cliente
 
