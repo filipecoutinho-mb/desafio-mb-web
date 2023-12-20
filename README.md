@@ -15,8 +15,6 @@ Esse desafio tem como objetivo entender seus conhecimentos sobre a plataforma We
 
 ## Set up da aplicação
 
-### Cliente
-
 Instalar todas as dependências
 
 ```console
