@@ -4,7 +4,7 @@
       <p class="step-indicator">
         Etapa
         <span class="current-section">{{ steps.current }}</span>
-        de {{ steps.total }}
+        de {{ totalSteps }}
       </p>
       <email-step
         v-if="currentSection === 'emailStep'"
@@ -62,7 +62,7 @@
           Voltar
         </button>
         <button
-          v-if="steps.current !== steps.total"
+          v-if="steps.current !== totalSteps"
           class="form-button"
           type="submit"
         >
@@ -102,9 +102,17 @@
     total: 4,
     current: 1,
     start: 'emailStep',
-    // order of steps follow array order
+    // order of steps follow order of array elements
     pf: ['emailStep', 'pfDetails', 'password', 'pfReview'],
     pj: ['emailStep', 'pjDetails', 'password', 'pjReview'],
+  })
+
+  const totalSteps = computed(() => {
+    if (client.value.type.length === 0) {
+      return steps.value.total
+    }
+
+    return steps.value[client.value.type].length
   })
 
   const currentSection = computed(() => {
