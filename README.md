@@ -37,9 +37,9 @@ npm run dev
 
 ## Layout
 
-O layout em que a aplicação foi baseada.
+O layout completo da aplicação, com todos os passos.
 
-![Telas Desafio MB Web](https://user-images.githubusercontent.com/83235141/225743749-ca86ca69-5902-4a75-bb42-d6c0fc169bf4.png)
+![desafio_web](https://github.com/filipecoutinho-mb/desafio-mb-web/assets/139773291/04dba328-b0a8-4727-8018-ced29fb45ff0)
 
 ## Endpoints
 
