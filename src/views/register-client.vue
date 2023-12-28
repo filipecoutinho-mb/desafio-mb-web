@@ -7,13 +7,13 @@
         de {{ steps.total }}
       </p>
       <email-step
-        v-if="steps.current === 1"
+        v-if="currentSection === 'emailStep'"
         :email="client.email"
         :type="client.type"
         @update="updateData"
       />
       <pf-details-step
-        v-if="steps.current === 2 && client.type === 'pessoaFisica'"
+        v-if="currentSection === 'pfDetails'"
         :name="client.name"
         :cpf="client.cpf"
         :birthdate="client.birthdate"
@@ -21,7 +21,7 @@
         @update="updateData"
       />
       <pj-details-step
-        v-if="steps.current === 2 && client.type === 'pessoaJuridica'"
+        v-if="currentSection === 'pjDetails'"
         :name="client.name"
         :cnpj="client.cnpj"
         :foundationdate="client.foundationdate"
@@ -29,12 +29,12 @@
         @update="updateData"
       />
       <password-step
-        v-if="steps.current === 3"
+        v-if="currentSection === 'password'"
         :password="client.password"
         @update="updateData"
       />
       <pf-review-step
-        v-if="steps.current === 4 && client.type === 'pessoaFisica'"
+        v-if="currentSection === 'pfReview'"
         :email="client.email"
         :password="client.password"
         :name="client.name"
@@ -44,7 +44,7 @@
         @update="updateData"
       />
       <pj-review-step
-        v-if="steps.current === 4 && client.type === 'pessoaJuridica'"
+        v-if="currentSection === 'pjReview'"
         :email="client.email"
         :password="client.password"
         :name="client.name"
@@ -56,12 +56,16 @@
       <div class="button-section" id="form-section-buttons">
         <button
           class="form-button button-previous"
-          v-if="steps.current !== 1"
+          v-if="!(currentSection === steps.start)"
           @click.prevent="prev()"
         >
           Voltar
         </button>
-        <button v-if="steps.current !== 4" class="form-button" type="submit">
+        <button
+          v-if="steps.current !== steps.total"
+          class="form-button"
+          type="submit"
+        >
           Continuar
         </button>
         <button v-else class="form-button" @click.prevent="submit()">
@@ -80,7 +84,7 @@
   import PfReviewStep from '../components/pf-review-step.vue'
   import PjReviewStep from '../components/pj-review-step.vue'
 
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
 
   const client = ref({
     email: '',
@@ -98,16 +102,25 @@
     total: 4,
     current: 1,
     start: 'emailStep',
-    pf: {},
-    pj: {},
+    // order of steps follow array order
+    pf: ['emailStep', 'pfDetails', 'password', 'pfReview'],
+    pj: ['emailStep', 'pjDetails', 'password', 'pjReview'],
   })
 
-  const prev = () => {
-    steps.value.current = steps.value.current - 1
-  }
+  const currentSection = computed(() => {
+    if (client.value.type.length === 0) {
+      return steps.value.start
+    }
+
+    return steps.value[client.value.type][steps.value.current - 1]
+  })
 
   const next = () => {
     steps.value.current = steps.value.current + 1
+  }
+
+  const prev = () => {
+    steps.value.current = steps.value.current - 1
   }
 
   const updateData = (event) => {

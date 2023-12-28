@@ -17,7 +17,7 @@
         type="radio"
         id="pessoa-fisica"
         name="client-type"
-        value="pessoaFisica"
+        value="pf"
         required
         @change="dispatchEvent('update', { type: userType })"
         v-model="userType"
@@ -30,7 +30,7 @@
         type="radio"
         id="pessoa-juridica"
         name="client-type"
-        value="pessoaJuridica"
+        value="pj"
         required
         @change="dispatchEvent('update', { type: userType })"
         v-model="userType"

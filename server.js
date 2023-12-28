@@ -42,7 +42,7 @@ app.post('/registration', async (req, res, next) => {
   const { email, type, name, phone, password } = req.body
   let client = {}
 
-  if (type === 'pessoaFisica') {
+  if (type === 'pf') {
     const { cpf, birthdate } = req.body
     client = {
       email,
@@ -52,7 +52,7 @@ app.post('/registration', async (req, res, next) => {
       phone,
       password,
     }
-  } else if (type === 'pessoaJuridica') {
+  } else if (type === 'pj') {
     const { cnpj, foundationdate } = req.body
     client = {
       email,
