@@ -18,9 +18,9 @@
         id="pessoa-fisica"
         name="client-type"
         value="pf"
-        required
-        @change="dispatchEvent('update', { type: userType })"
         v-model="userType"
+        @change="dispatchEvent('update', { type: userType })"
+        required
       />
       <label class="register-client-input-radio-label" for="pessoa-fisica"
         >Pessoa Física</label
@@ -31,9 +31,9 @@
         id="pessoa-juridica"
         name="client-type"
         value="pj"
-        required
-        @change="dispatchEvent('update', { type: userType })"
         v-model="userType"
+        @change="dispatchEvent('update', { type: userType })"
+        required
       />
       <label class="register-client-input-radio-label" for="pessoa-juridica"
         >Pessoa Jurídica</label
