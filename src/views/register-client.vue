@@ -103,8 +103,8 @@
     current: 1,
     start: 'emailStep',
     // order of steps follow order of array elements
-    pf: ['emailStep', 'pfDetails', 'password', 'pfReview'],
-    pj: ['emailStep', 'pjDetails', 'password', 'pjReview'],
+    pf: ['pfDetails', 'password', 'pfReview'],
+    pj: ['pjDetails', 'password', 'pjReview'],
   })
 
   const totalSteps = computed(() => {
@@ -112,15 +112,15 @@
       return steps.value.total
     }
 
-    return steps.value[client.value.type].length
+    return steps.value[client.value.type].length + 1
   })
 
   const currentSection = computed(() => {
-    if (client.value.type.length === 0) {
+    if (steps.value.current === 1) {
       return steps.value.start
     }
 
-    return steps.value[client.value.type][steps.value.current - 1]
+    return steps.value[client.value.type][steps.value.current - 2]
   })
 
   const next = () => {
